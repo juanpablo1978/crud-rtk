@@ -1,12 +1,18 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTask } from "../features/tasks/tasksSlices";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addTask, editTask } from "../features/tasks/tasksSlices";
 import { v4 as uuid } from "uuid";
+import { useNavigate, useParams } from "react-router-dom";
+
 
 const TaskForm = () => {
+
   const [task, setTask] = useState({ title: "", description: "" });
   const dispatch = useDispatch();
+  const navigate = useNavigate()
+  const params = useParams();
+   const tasks = useSelector((state) => state.tasks);
 
   const handleChange = (e) => {
     setTask({
@@ -17,11 +23,32 @@ const TaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addTask({
+   
+    if (params.id) {
+      dispatch(editTask({ ...task, id: params.id }))
+    } else{
+        dispatch(addTask({
       ...task,
       id: uuid()
     }));
+    }
+
+  
+    navigate('/')
   };
+
+useEffect(() => {
+  if (params.id) {
+    const taskFound = tasks.find(task => task.id === params.id);
+    if (taskFound) {
+      setTask({
+        id: taskFound.id,
+        title: taskFound.title,
+        description: taskFound.description
+      });
+    }
+  }
+}, [params.id, tasks]);
 
   return (
     <form
@@ -42,7 +69,7 @@ const TaskForm = () => {
         onChange={handleChange}
         className="w-[270px] h-[280px] border-[1px] border-white outline-none p-2"
       ></textarea>
-      <button className="text-green-600 cursor-pointer">SUBMIT</button>
+      <button className="text-green-600 cursor-pointer" type="submit">SUBMIT</button>
     </form>
   );
 };

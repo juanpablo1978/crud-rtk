@@ -25,9 +25,18 @@ const userSlice = createSlice({
       if (taskFound) {
         state.splice(state.indexOf(taskFound), 1)
       }
+    },
+    editTask: (state, action) => {
+     const {id, title, description} =  action.payload;
+     const foundTask = state.find((state) => state.id === id );
+
+     if (foundTask) {
+      foundTask.title = title;
+      foundTask.description = description
+     }
     }
   },
 });
 
 export default userSlice.reducer;
-export const {addTask, deleteTask} = userSlice.actions
+export const {addTask, deleteTask, editTask} = userSlice.actions
