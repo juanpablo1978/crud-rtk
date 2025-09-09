@@ -6,8 +6,8 @@ import { MdDelete } from "react-icons/md";
 
 const Login = () => {
   return (
-    <main className="min-h-screen bg-black w-full p-8 ">
-      <h1 className="text-[50px] font-bold text-center lg:text-[55px]">CRUD</h1>
+    <main className="min-h-screen bg-slate-950 w-full p-8 ">
+      <h1 className="text-[50px] font-bold text-center lg:text-[55px] text-white">CRUD</h1>
       <section className="flex flex-col justify-center items-center">
         <article className="flex gap-x-6 pt-11">
           <div className="flex flex-col justify-center items-center gap-y-2">
@@ -35,18 +35,18 @@ const Login = () => {
             <input
               type="text"
               className="w-[286px] h-[53px] md:w-[436px] md:h-[60px] bg-[#1d1f25] 
-              rounded-4xl outline-none p-4 text-[20px]"
+              rounded-4xl outline-none p-4 text-[20px] placeholder-gray-300"
               placeholder="email@gmail.com"
             />
             <input
               type="text"
               className="w-[286px] h-[53px] md:w-[436px] md:h-[60px] bg-[#1d1f25]
-               rounded-4xl outline-none p-4 text-[20px]"
+               rounded-4xl outline-none p-4 text-[20px] placeholder-gray-300"
               placeholder="Password"
             />
             <button className="w-[240px] h-[53px] md:w-[400px] md:h-[60px] cursor-pointer
             rounded-4xl border-[1px] lg:h-[48px] border-purple-400 text-[22px]
-            hover:text-gray-400 hover:border-purple-500">
+            hover:text-gray-400 hover:border-purple-500 text-gray-300">
               SUBMIT
             </button>
           </form>

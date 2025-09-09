@@ -14,7 +14,7 @@ const TaskList = () => {
   };
 
   return (
-    <main className="p-6 pt-10 min-h-screen flex bg-black flex-col text-white">
+    <main className="p-6 pt-10 min-h-screen flex bg-slate-950 flex-col text-white">
       <header className="">
         {" "}
         <h3 className="text-gray-300 text-[30px] md:text-[40px] lg:text-[46px]
@@ -27,7 +27,7 @@ const TaskList = () => {
         </h4>
         <div className="flex flex-wrap gap-6 md:justify-center">
           <div className="w-[153px] h-[110px] md:w-[180px] bg-[#151a20] rounded-xl p-4">
-            <MdOutlineCreate className="w-[45px] h-[45px] bg-violet-200/50 text-violet-800 rounded-md mb-2" />{" "}
+            <MdOutlineCreate className="w-[45px] h-[45px] bg-purple-200/50 text-purple-400 rounded-md mb-2" />{" "}
             <Link
               className="text-gray-400 text-[23px] font-normal"
               to={"task-form"}
@@ -35,15 +35,19 @@ const TaskList = () => {
               Create Task
             </Link>
           </div>
-          <div className="w-[155px] h-[110px] md:w-[180px] bg-[#151a20] rounded-xl p-4">
+          <div className="w-[165px] h-[110px] md:w-[180px] bg-[#151a20] rounded-xl p-4">
+            
             <VscTasklist className="w-[45px] h-[45px] bg-yellow-200/50 text-yellow-200 rounded-md mb-2 " />
-            <h4 className="text-gray-400 text-[23px] font-normal">
-              Your Tasks <span className="text-gray-200">{tasks.length}</span>{" "}
+            <h4 className="text-gray-400 text-[20px] lg:text-[23px] md:text-[23px] font-normal flex gap-x-3">
+              Your Tasks <div className="text-gray-200 bg-gray-100/50 rounded-full w-[30px] h-[30px] flex
+              justify-center items-center">
+              {tasks.length}
+              </div>{" "}
             </h4>
           </div>
           <div className="w-[153px] h-[110px] md:w-[180px] bg-[#151a20] rounded-xl p-4">
             <h4 className="text-gray-400 text-[23px] font-normal">
-              <TbTargetArrow className="w-[45px] h-[45px] bg-pink-200/50 text-pink-800 rounded-md mb-2 " />
+              <TbTargetArrow className="w-[45px] h-[45px] bg-pink-200/50 text-pink-300 rounded-md mb-2 " />
               <h4 className="text-gray-400 text-[23px] font-normal">Focused</h4>
             </h4>
           </div>
@@ -58,12 +62,12 @@ const TaskList = () => {
             <h3 className="w-full h-[55px] bg-[#1c2025] font-bold rounded-t-xl p-2 text-gray-400 text-[20px]">
               {task.title}
             </h3>
-            <p className="p-3 text-[18px] md:text-[19px]">{task.description}</p>
+            <p className="p-3 text-[18px] md:text-[19px] lg:font-thin">{task.description}</p>
             <div className="absolute bottom-4 right-14">
               <button
-                className="text-red-600 cursor-pointer mr-5
+                className="text-purple-400 hover:text-purple-300 cursor-pointer mr-5
                 rounded-2xl
-              w-[70px] h-[30px] border-[1px] border-red-600"
+              w-[70px] h-[30px] border-[1px] border-purple-400 hover:border-purple-300"
                 onClick={() => {
                   handleDelete(task.id);
                 }}
@@ -71,8 +75,8 @@ const TaskList = () => {
                 DELETE
               </button>
               <button
-                className="cursor-pointer text-green-600 rounded-2xl
-              w-[70px] h-[30px] border-[1px] border-green-600"
+                className="cursor-pointer text-yellow-300 rounded-2xl hover:text-yellow-200
+              w-[70px] h-[30px] border-[1px] border-yellow-300 hover:border-yellow-200"
               >
                 <Link to={`/edit-task/${task.id}`} className="">
                   EDIT
