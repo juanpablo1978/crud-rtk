@@ -6,7 +6,7 @@ import Login from './components/Login'
 
 const App = () => {
   return (
-    <main className='min-h-screen flex justify-center items-center bg-black text-white'>
+    
       <BrowserRouter>
       <Routes>
         <Route path='/login' element={<Login/>} />
@@ -15,7 +15,7 @@ const App = () => {
         <Route path='/edit-task/:id' element={<TaskForm/>} />
       </Routes>
       </BrowserRouter>
-    </main>
+    
   )
 }
 

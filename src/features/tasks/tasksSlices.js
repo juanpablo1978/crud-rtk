@@ -2,14 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
   { id: "1",
-     title: "Task 1",
+     title: "Write project documentation",
       completed: false,
-       description: "My task 1" },
+       description: "Create a complete README file that includes detailed installation steps, usage examples, contribution guidelines, and troubleshooting notes. Make sure it is easy to follow for new developers and provides all the context needed to get started quickly." },
   {
     id: "2",
-    title: "Task 2",
+    title: "Fix login form validation",
     completed: false,
-    description: "My task 2",
+    description: "Review and improve the login form component by ensuring validation for empty fields, incorrect email format, and insufficient password length. Also, add user-friendly error messages and test the flow across different devices and browsers to guarantee consistency.",
   },
 ];
 
