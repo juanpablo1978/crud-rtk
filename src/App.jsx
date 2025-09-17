@@ -9,8 +9,8 @@ const App = () => {
     
       <BrowserRouter>
       <Routes>
-        <Route path='/login' element={<Login/>} />
-        <Route path='/' element={<TaskList/>} />
+        <Route path='/' element={<Login/>} />
+        <Route path='/task-list' element={<TaskList/>} />
         <Route path='/task-form' element={<TaskForm/>} />
         <Route path='/edit-task/:id' element={<TaskForm/>} />
       </Routes>

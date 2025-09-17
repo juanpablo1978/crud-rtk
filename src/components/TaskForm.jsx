@@ -34,7 +34,7 @@ const TaskForm = () => {
       );
     }
 
-    navigate("/");
+    navigate("/task-list");
   };
 
   useEffect(() => {
