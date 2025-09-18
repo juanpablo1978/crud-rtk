@@ -4,32 +4,41 @@ import { FaBookOpenReader } from "react-icons/fa6";
 import { GrUpdate } from "react-icons/gr";
 import { MdDelete } from "react-icons/md";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 //https://chatgpt.com/c/68c568ed-6ec8-8327-9503-c9adef78c50b
 //https://academy.alkemy.org/curso/skill-up-react-i/contenidos/clase-2-validacion-del-formulario
 
 const Login = () => {
+
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    if (email || password === "") {
+    if (email === '' || password === "") {
       console.log("los campos no pueden estar vacios");
       return;
     }
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email !== "" && !regex.test(email)) {
+    if (!regex.test(email)) {
       console.log("debes escribir una direccion de correo valida");
     }
 
     if (email !== "challenge@alkemy.org" || password !== "react") {
       console.log("credenciales incorrectas");
+      return
     }
     axios
     .post('http://challenge-react.alkemy.org', {email, password})
-    .then(res=> res.data.token)
+    .then(res=> {
+       const myToken = res.data.token;
+       localStorage.setItem('token', myToken)
+          navigate('/task-list')
+    })
+ 
     
   };
 

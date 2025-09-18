@@ -4,8 +4,23 @@ import { Link } from "react-router-dom";
 import { MdOutlineCreate } from "react-icons/md";
 import { VscTasklist } from "react-icons/vsc";
 import { TbTargetArrow } from "react-icons/tb";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const TaskList = () => {
+  
+  const navigate = useNavigate();
+ 
+
+  useEffect(()=> {
+     const token = localStorage.getItem('token');
+    if (token === null) {
+      navigate('/')
+    }
+  }, [navigate]);
+
+
+
   const tasks = useSelector((state) => state.tasks);
   const dispatch = useDispatch();
 
