@@ -33,7 +33,7 @@ const Login = () => {
       return;
     }
     axios
-      .post("http://challenge-react.alkemy.org", { email, password })
+      .post("https://challenge-react.alkemy.org", { email, password })
       .then((res) => {
         const myToken = res.data.token;
         localStorage.setItem("token", myToken);
