@@ -33,8 +33,9 @@ const TaskList = () => {
 
   return (
     <main className="p-6 pt-10 min-h-screen flex bg-slate-950 flex-col text-white">
+       <Logout />
       <header className="">
-        <Logout />
+       
         <h3
           className="text-gray-300 text-[30px] md:text-[40px] lg:text-[46px]
         md:text-center font-semibold pb-2"

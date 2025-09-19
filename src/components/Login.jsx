@@ -49,12 +49,10 @@ const Login = () => {
 
   return (
     <main className="min-h-screen bg-slate-950 w-full p-8 ">
-      <h1 className="text-[50px] font-bold text-center lg:text-[55px] text-white">
-        CRUD
+      <h1 className="text-[30px] font-bold text-center lg:text-[55px] text-white">
+        Redux Toolkit CRUD
       </h1>
-      <h2 className="text-[30px] font-bold text-center lg:text-[55px] text-gray-300">
-        Redux Toolkit
-      </h2>
+      
       <section className="flex flex-col justify-center items-center">
         <article className="flex gap-x-6 pt-11">
           <div className="flex flex-col justify-center items-center gap-y-2">
