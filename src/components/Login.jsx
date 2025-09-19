@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { IoCreateSharp } from "react-icons/io5";
 import { FaBookOpenReader } from "react-icons/fa6";
 import { GrUpdate } from "react-icons/gr";
@@ -6,11 +6,11 @@ import { MdDelete } from "react-icons/md";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
 //https://chatgpt.com/c/68c568ed-6ec8-8327-9503-c9adef78c50b
 //https://academy.alkemy.org/curso/skill-up-react-i/contenidos/clase-2-validacion-del-formulario
 
 const Login = () => {
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
   const handleSubmit = (e) => {
@@ -18,28 +18,30 @@ const Login = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    if (email === '' || password === "") {
-      console.log("los campos no pueden estar vacios");
+    if (email === "" || password === "") {
+      setError("Fields cannot be empty");
       return;
     }
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!regex.test(email)) {
-      console.log("debes escribir una direccion de correo valida");
+      setError("You must enter a valid email address");
+      return;
     }
 
     if (email !== "challenge@alkemy.org" || password !== "react") {
-      console.log("credenciales incorrectas");
-      return
+      setError("Incorrect credentials");
+      return;
     }
     axios
-    .post('http://challenge-react.alkemy.org', {email, password})
-    .then(res=> {
-       const myToken = res.data.token;
-       localStorage.setItem('token', myToken)
-          navigate('/task-list')
-    })
- 
-    
+      .post("http://challenge-react.alkemy.org", { email, password })
+      .then((res) => {
+        const myToken = res.data.token;
+        localStorage.setItem("token", myToken);
+        navigate("/task-list");
+      })
+      .catch(() => {
+        setError("Error trying to login");
+      });
   };
 
   return (
@@ -47,6 +49,9 @@ const Login = () => {
       <h1 className="text-[50px] font-bold text-center lg:text-[55px] text-white">
         CRUD
       </h1>
+      <h2 className="text-[30px] font-bold text-center lg:text-[55px] text-gray-300">
+        Redux Toolkit
+      </h2>
       <section className="flex flex-col justify-center items-center">
         <article className="flex gap-x-6 pt-11">
           <div className="flex flex-col justify-center items-center gap-y-2">
@@ -94,6 +99,7 @@ const Login = () => {
             >
               SUBMIT
             </button>
+            {error && <p className="text-red-400 mt-4"> {error} </p>}
           </form>
         </article>
       </section>

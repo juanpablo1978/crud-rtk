@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
+
+//persistencia
+const initialState = JSON.parse(localStorage.getItem("tasks")) || [
   { id: "1",
      title: "Write project documentation",
       completed: false,
