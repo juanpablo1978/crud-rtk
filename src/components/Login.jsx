@@ -28,10 +28,13 @@ const Login = () => {
       return;
     }
 
-    if (email !== "challenge@alkemy.org" || password !== "react") {
-      setError("Incorrect credentials");
-      return;
-    }
+     if (email === "challenge@alkemy.org" && password === "react") {
+    const myToken = "token123"; // Token fijo
+    localStorage.setItem("token", myToken);
+    navigate("/task-list");
+  } else {
+    setError("Credenciales incorrectas");
+  }
     axios
       .post("https://challenge-react.alkemy.org", { email, password })
       .then((res) => {
