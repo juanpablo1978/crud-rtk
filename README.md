@@ -1,13 +1,24 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 # crud-rtk
+
+Aplicación CRUD construida con **Vite**, **Tailwind CSS** y **Redux Toolkit** como gestor del estado global.
+
+---
+
+## 🛠️ Características
+
+- Operaciones básicas **CRUD** (Crear, Leer, Actualizar, Eliminar) para entidades gestionadas.  
+- Autenticación: Login y Logout.  
+- Rutas protegidas: solo usuarios autenticados pueden acceder a las vistas de administración / edición.  
+- Estilo moderno y responsivo mediante Tailwind CSS.  
+- Estructura modular, con separación clara entre componentes, state management, y vistas.
+
+---
+
+## 📦 Tecnologías
+
+- **Frontend**: React con Vite como bundler.  
+- **Estilos**: Tailwind CSS.  
+- **Gestión de estado**: Redux Toolkit.  
+- **Routing**: React Router (u otra librería similar) con protección de rutas.
+
+
